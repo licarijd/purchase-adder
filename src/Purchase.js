@@ -6,21 +6,16 @@ function Purchase() {
 
     this.total = () => {
         if (products.length > 0) {
-            let total = 0
+            let total = new Money(0)
             products.forEach(productCode => {
-                console.log(total)
-                console.log(productCode)
-                total += priceDirectory[productCode]
+                total.add(priceDirectory[productCode])
             });
-            return new Money(total)
-        } else {
-            return new Money(0)
         }
+        return total;
     }
 
     this.add = (productID) => {
         products.push(productID)
-        console.log(products)
     }
 }
 
