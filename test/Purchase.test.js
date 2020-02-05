@@ -1,7 +1,7 @@
 var sinon = require('sinon');
-var CheckOut = require('../src/CheckOut');
 var Money = require('../lib/DontTouch/util/Money');
 var PAGAClient = require('../lib/DontTouch/paga/PAGAClientImpl');
+var Purchase = require('../src/Purchase');
 
 describe('CheckOut test suite', function () {
   var mockPAGAClient;
@@ -14,7 +14,6 @@ describe('CheckOut test suite', function () {
 
   test('total is zero initially', function () {
     const purchase = new Purchase();
-    expect(purchase.total()).toEqual(new Money(0))
-    expectation.verify();
+    expect(purchase.total().equals(new Money(0))).toEqual(true)
   });
 });
