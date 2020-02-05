@@ -1,3 +1,4 @@
+var Money = require('../lib/DontTouch/util/Money')
 
 var priceDirectory = {
     "000000001234": new Money(16.69),

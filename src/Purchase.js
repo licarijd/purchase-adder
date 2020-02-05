@@ -5,13 +5,11 @@ function Purchase() {
     var products = []
 
     this.total = () => {
-        if (products.length > 0) {
-            let total = new Money(0)
-            products.forEach(productCode => {
-                total.add(priceDirectory[productCode])
-            });
-        }
-        return total;
+        let total = new Money(0)
+        products.forEach(productCode => {
+            total = total.add(priceDirectory[productCode])
+        });
+        return total.getValue();
     }
 
     this.add = (productID) => {

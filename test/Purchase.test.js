@@ -15,7 +15,7 @@ describe('CheckOut test suite', function () {
 
   test('total is zero initially', function () {
     const purchase = new Purchase();
-    expect(purchase.total().equals(new Money(0))).toEqual(true)
+    expect(purchase.total() === new Money(0).getValue()).toEqual(true)
   });
 
   test('adding first item results in a total equal to product price', function () {
@@ -23,8 +23,6 @@ describe('CheckOut test suite', function () {
     const productID = "000000001234"
 
     purchase.add(productID)
-    console.log(purchase.total())
-    console.log(priceDirectory["000000001234"])
-    expect(purchase.total().equals(priceDirectory["000000001234"])).toEqual(true)
+    expect(purchase.total() === priceDirectory["000000001234"].getValue()).toEqual(true)
   });
 });
